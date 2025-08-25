@@ -141,16 +141,27 @@ let isDarkTheme = true;
 function toggleTheme() {
     isDarkTheme = !isDarkTheme;
     document.body.setAttribute('data-theme', isDarkTheme ? 'dark' : 'light');
-    themeBtn.querySelector('.theme-icon').textContent = isDarkTheme ? '🌙' : '☀️';
+    const themeIcon = themeBtn.querySelector('.theme-icon');
+    if (themeIcon) {
+        themeIcon.textContent = isDarkTheme ? '🌙' : '☀️';
+    }
     localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
 }
 
-// Load saved theme
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-    isDarkTheme = savedTheme === 'dark';
-    document.body.setAttribute('data-theme', isDarkTheme ? 'dark' : 'light');
-    themeBtn.querySelector('.theme-icon').textContent = isDarkTheme ? '🌙' : '☀️';
+// Load saved theme when DOM is ready
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        isDarkTheme = savedTheme === 'dark';
+        document.body.setAttribute('data-theme', isDarkTheme ? 'dark' : 'light');
+        const themeBtn = document.getElementById('theme-btn');
+        if (themeBtn) {
+            const themeIcon = themeBtn.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = isDarkTheme ? '🌙' : '☀️';
+            }
+        }
+    }
 }
 
 // Sidebar toggle functionality
@@ -473,7 +484,7 @@ messageInput.addEventListener('keypress', (e) => {
     }
 });
 
-themeBtn.addEventListener('click', toggleTheme);
+// Theme button event listener is now handled in DOMContentLoaded
 
 // Suggestion buttons and project interactions
 document.addEventListener('click', (e) => {
@@ -548,7 +559,14 @@ messageInput.focus();
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
+    loadTheme();
     initializeChatTabs();
+    
+    // Add event listeners
+    const themeBtn = document.getElementById('theme-btn');
+    if (themeBtn) {
+        themeBtn.addEventListener('click', toggleTheme);
+    }
     
     // Add initial welcome message
     setTimeout(() => {
