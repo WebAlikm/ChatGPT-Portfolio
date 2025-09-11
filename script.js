@@ -1,52 +1,45 @@
 // Portfolio Data - Customize this with your actual information
 const portfolioData = {
-    name: "Your Name",
-    title: "Full Stack Developer",
-    email: "your.email@example.com",
-    location: "Your City, Country",
+    name: "Ali Khemakhem",
+    title: "AI Engineering Student & Developer",
+    email: "alislim007km@gmail.com",
+    location: "Abu Dhabi, UAE",
     
     skills: {
         frontend: ["React", "Vue.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS"],
         backend: ["Node.js", "Python", "Express.js", "Django", "PostgreSQL", "MongoDB"],
-        tools: ["Git", "Docker", "AWS", "Figma", "VS Code"]
+        tools: ["Java", "Git", "VS Code", "GitHub"]
     },
     
     projects: [
         {
-            name: "E-commerce Platform",
-            description: "A full-stack e-commerce solution with React frontend and Node.js backend",
-            technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
-            link: "https://github.com/yourusername/ecommerce",
-            image: "🛒"
+            name: "PickupBasketball",
+            description: "React app for managing sports games and player assignments",
+            technologies: ["React", "JavaScript", "CSS3", "HTML5"],
+            link: "https://github.com/WebAlikm/PickupBasketball01.git",
+            image: "🏀"
         },
         {
-            name: "Task Management App",
-            description: "A collaborative task management application with real-time updates",
-            technologies: ["Vue.js", "Socket.io", "MongoDB", "Express.js"],
-            link: "https://github.com/yourusername/taskapp",
-            image: "📋"
-        },
-        {
-            name: "Weather Dashboard",
-            description: "A responsive weather dashboard with location-based forecasts",
-            technologies: ["JavaScript", "Chart.js", "Weather API", "CSS3"],
-            link: "https://github.com/yourusername/weather",
-            image: "🌤️"
+            name: "PrivacyGen",
+            description: "Privacy policy generator with blog and contact features",
+            technologies: ["HTML5", "CSS3", "JavaScript", "Node.js"],
+            link: "https://github.com/WebAlikm/PrivacyGen",
+            image: "🔒"
         }
     ],
     
     experience: [
         {
-            company: "Tech Company Inc.",
-            position: "Senior Frontend Developer",
-            duration: "2022 - Present",
-            description: "Led frontend development for multiple client projects, mentored junior developers"
+            company: "Abu Dhabi University (ADU)",
+            position: "Bachelor's in Artificial Intelligence Engineering",
+            duration: "Current",
+            description: "Studying AI Engineering with focus on web development"
         },
         {
-            company: "Startup XYZ",
-            position: "Full Stack Developer",
-            duration: "2020 - 2022",
-            description: "Built and maintained web applications using modern JavaScript frameworks"
+            company: "APU University",
+            position: "Student",
+            duration: "2025 (1 year)",
+            description: "Completed one year before transferring to ADU"
         }
     ]
 };
@@ -106,9 +99,9 @@ const responses = {
         keywords: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'],
         response: () => {
             const greetings = [
-                `Hello! 👋 Welcome to my interactive portfolio. I'm ${portfolioData.name}, and I'm excited to chat with you about my work and experience!`,
-                `Hi there! 🌟 Thanks for stopping by. I'm ${portfolioData.name}, a ${portfolioData.title}. What would you like to know about me?`,
-                `Hey! 🚀 Great to meet you. I'm ${portfolioData.name} and I love talking about technology and development. How can I help you today?`
+                `Hi! I'm ${portfolioData.name}. Ask me about my skills, projects, or experience.`,
+                `Hello! I'm ${portfolioData.name}, ${portfolioData.title}. What would you like to know?`,
+                `Hey! I'm ${portfolioData.name}. How can I help?`
             ];
             return greetings[Math.floor(Math.random() * greetings.length)];
         }
@@ -118,10 +111,9 @@ const responses = {
         keywords: [],
         response: () => {
             const responses = [
-                `That's an interesting question! While I might not have a specific answer for that, I'd love to tell you about my **skills**, **projects**, or **experience**. What interests you most?`,
-                `I'm not sure about that specific topic, but I'm happy to discuss my **technical background**, **recent projects**, or how we might **work together**. What would you like to explore?`,
-                `Great question! Let me redirect you to something I can definitely help with. Would you like to know about my **development skills**, **portfolio projects**, or **contact information**?`,
-                `Hmm, I don't have specific information about that. But I'm here to share my professional journey! Try asking about my **skills**, **projects**, **experience**, or **contact** details. 😊`
+                `I can help with **skills**, **projects**, **experience**, or **contact** info. What interests you?`,
+                `Try asking about my **technical background**, **projects**, or **contact** details.`,
+                `Ask me about **skills**, **projects**, or **experience**.`
             ];
             return responses[Math.floor(Math.random() * responses.length)];
         }
@@ -136,7 +128,7 @@ const typingIndicator = document.getElementById('typing-indicator');
 const themeBtn = document.getElementById('theme-btn');
 
 // Theme Management
-let isDarkTheme = true;
+let isDarkTheme = false;
 
 function toggleTheme() {
     isDarkTheme = !isDarkTheme;
@@ -258,11 +250,11 @@ function switchChatSession(sessionId) {
 
 function addWelcomeMessage(sessionId) {
     const welcomeMessages = {
-        general: "Hi! I'm your AI assistant. Ask me anything about my background, skills, or projects!",
-        skills: "Let's talk about my technical skills and expertise. What would you like to know?",
-        projects: "Here you can explore my projects and see what I've built. Which project interests you?",
-        experience: "I'd be happy to share my work experience and career journey. What would you like to know?",
-        contact: "Ready to get in touch? I can help you with contact information or you can send me a message directly."
+        general: "Hello! I'm Ali Khemakhem, a Full Stack Developer from Abu Dhabi, UAE. Welcome to my interactive portfolio! How can I help you today?",
+        skills: "I'm proficient in both frontend and backend technologies:\n\n**Frontend:** React, Vue.js, JavaScript, TypeScript, HTML5, CSS3, Tailwind CSS\n\n**Backend:** Node.js, Python, Express.js, Django, PostgreSQL, MongoDB\n\n**Other Tools:** Java\n\nWhat specific technology would you like to know more about?",
+        projects: "Here are some of my key projects:\n\n🏀 **PickupBasketball** - A modern React application for creating and managing sports games with player assignments\n🔗 [GitHub](https://github.com/WebAlikm/PickupBasketball01.git)\n\n🔒 **PrivacyGen** - A complete privacy policy generator website with blog, pricing packages, and contact functionality\n🔗 [GitHub](https://github.com/WebAlikm/PrivacyGen)\n\nWhich project would you like to learn more about?",
+        experience: "I'm a passionate Full Stack Developer and AI enthusiast currently pursuing a Bachelor's degree in Artificial Intelligence Engineering at Abu Dhabi University (ADU). I previously studied at APU University for one year in 2025.\n\nWhile I don't have formal work experience yet, I've completed 10+ personal projects using various technologies including React, Vue.js, Node.js, Python, and more. My focus is on combining my AI studies with practical web development skills.\n\nWhat aspect of my educational journey or projects interests you most?",
+        contact: "I'd love to connect with you! Here's how you can reach me:\n\n📧 **Email:** alislim007km@gmail.com\n💼 **LinkedIn:** [Ali Khemakhem](https://www.linkedin.com/in/ali-khemakhem-393baa1b0/)\n🔗 **GitHub:** [WebAlikm](https://github.com/WebAlikm)\n\nFeel free to reach out for collaborations, opportunities, or just to chat about technology!"
     };
     
     setTimeout(() => {
@@ -348,15 +340,15 @@ function addContactForm() {
             
             <div class="contact-form-container">
                 <p><strong>Or send me a quick message:</strong></p>
-                <form class="contact-form" id="contact-form">
+                <form class="contact-form" id="contact-form" action="https://formspree.io/f/xzzaolee" method="POST">
                     <div class="form-group">
-                        <input type="text" id="contact-name" placeholder="Your Name" required>
+                        <input type="text" name="name" id="contact-name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="contact-email" placeholder="Your Email" required>
+                        <input type="email" name="email" id="contact-email" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="contact-message" placeholder="Your Message" rows="4" required></textarea>
+                        <textarea name="message" id="contact-message" placeholder="Your Message" rows="4" required></textarea>
                     </div>
                     <button type="submit" class="contact-submit-btn">
                         <span class="btn-text">Send Message</span>
@@ -365,7 +357,7 @@ function addContactForm() {
                 </form>
             </div>
             
-            <p class="contact-note">💡 <em>This is a demo form. In a real implementation, you'd integrate with a service like Formspree, EmailJS, or Netlify Forms.</em></p>
+            <p class="contact-note">💡 <em>This form is connected to Formspree and will send messages directly to alislim007km@gmail.com</em></p>
         </div>
     `;
     
@@ -532,30 +524,63 @@ function handleContactFormSubmission(form) {
     btnText.style.display = 'none';
     btnLoading.style.display = 'block';
     
-    // Simulate form submission (replace with actual form handling)
-    setTimeout(() => {
+    // Use Formspree for actual form submission
+    const formData = new FormData(form);
+    
+    fetch('https://formspree.io/f/xzzaolee', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
         // Reset button state
         submitBtn.disabled = false;
         btnText.style.display = 'block';
         btnLoading.style.display = 'none';
         
-        // Clear form
-        form.reset();
+        if (response.ok) {
+            // Clear form on success
+            form.reset();
+            
+            // Show success message
+            showTypingIndicator();
+            
+            setTimeout(() => {
+                hideTypingIndicator();
+                const successMessage = `Thank you, **${name}**! 🎉\n\nYour message has been sent successfully to alislim007km@gmail.com. I'll get back to you as soon as possible!\n\nIs there anything else you'd like to know about my work or experience?`;
+                addMessage(successMessage, false);
+            }, 1000);
+        } else {
+            throw new Error('Form submission failed');
+        }
+    })
+    .catch(error => {
+        // Reset button state
+        submitBtn.disabled = false;
+        btnText.style.display = 'block';
+        btnLoading.style.display = 'none';
         
-        // Show success message
+        // Show error message
         showTypingIndicator();
         
         setTimeout(() => {
             hideTypingIndicator();
-            const successMessage = `Thank you, **${name}**! 🎉\n\nI've received your message and will get back to you at **${email}** as soon as possible.\n\n*In a real implementation, this would actually send the email through a service like Formspree, EmailJS, or a backend API.*\n\nIs there anything else you'd like to know about my work or experience?`;
-            addMessage(successMessage, false);
+            const errorMessage = `Sorry, there was an error sending your message. Please try again or contact me directly at **alislim007km@gmail.com**.`;
+            addMessage(errorMessage, false);
         }, 1000);
-        
-    }, 2000); // Simulate network delay
+    });
 }
 
 // Auto-focus input
 messageInput.focus();
+
+// About button functionality
+function showAboutInfo() {
+    const aboutMessage = `Portfolio Version 1.0\n\nThis is the first version of my interactive portfolio website.\n\nVersion 2.0 Plans:\nTraining custom AI models to answer questions about my experience and projects.`;
+    alert(aboutMessage);
+}
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
@@ -566,6 +591,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeBtn = document.getElementById('theme-btn');
     if (themeBtn) {
         themeBtn.addEventListener('click', toggleTheme);
+    }
+    
+    // Add about button event listener
+    const aboutBtn = document.getElementById('about-btn');
+    if (aboutBtn) {
+        aboutBtn.addEventListener('click', showAboutInfo);
     }
     
     // Add initial welcome message

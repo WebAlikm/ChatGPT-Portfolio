@@ -10,7 +10,7 @@
    git add .
    git commit -m "Initial commit: ChatGPT Portfolio"
    git branch -M main
-   git remote add origin https://github.com/yourusername/chatgpt-portfolio.git
+   git remote add origin https://github.com/WebAlikm/ChatGPT-Portfolio.git
    git push -u origin main
    ```
 

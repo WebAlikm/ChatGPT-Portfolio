@@ -243,6 +243,9 @@ body {
     letter-spacing: 0.5px;
 }
 
+/* About Section */
+
+
 /* Quick Links */
 .quick-links h4,
 .social-links h4 {
@@ -269,6 +272,33 @@ body {
     background-color: var(--accent-color);
     color: white;
     transform: translateY(-1px);
+}
+
+.about-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    font-size: 0.875rem;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.about-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.about-btn .link-icon {
+    font-size: 1rem;
 }
 
 .link-icon {
