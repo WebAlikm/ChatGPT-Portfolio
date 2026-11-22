@@ -277,11 +277,18 @@ function createMessage(content, isUser = false, showAvatar = true) {
     messageDiv.innerHTML = `
         ${avatarDiv}
         <div class="message-content">
-            <p>${formatMessage(content)}</p>
+            <p>${isUser ? escapeHtml(content) : formatMessage(content)}</p>
         </div>
     `;
     
     return messageDiv;
+}
+
+// Do not interpret visitor-entered text as markup or executable HTML.
+function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, character => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    })[character]);
 }
 
 function formatMessage(text) {
