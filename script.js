@@ -1,45 +1,49 @@
-// Portfolio Data - Customize this with your actual information
+// Portfolio data: keep this synchronized with demonstrable projects and verified experience.
 const portfolioData = {
     name: "Ali Khemakhem",
-    title: "AI Engineering Student & Developer",
+    title: "Computer Science & AI Student | Full-Stack Developer",
     email: "alislim007km@gmail.com",
     location: "Abu Dhabi, UAE",
-    
     skills: {
-        frontend: ["React", "Vue.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS"],
-        backend: ["Node.js", "Python", "Express.js", "Django", "PostgreSQL", "MongoDB"],
-        tools: ["Java", "Git", "VS Code", "GitHub"]
+        frontend: ["React", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS"],
+        backend: ["Node.js", "Express", "Python", "API Integration"],
+        tools: ["Git", "GitHub", "Supabase", "Vite", "Resend"]
     },
-    
     projects: [
         {
-            name: "PickupBasketball",
-            description: "React app for managing sports games and player assignments",
-            technologies: ["React", "JavaScript", "CSS3", "HTML5"],
-            link: "https://github.com/WebAlikm/PickupBasketball01.git",
-            image: "🏀"
+            name: "YouAreMoreHere",
+            description: "Full-stack web application with a seven-day email experience. Uses React, TypeScript, Express, Supabase, and Resend. Source code is private; live product is available.",
+            technologies: ["React", "TypeScript", "Express", "Supabase", "Resend"],
+            link: "https://youaremorehere.com",
+            image: "✉️"
         },
         {
-            name: "PrivacyGen",
-            description: "Privacy policy generator with blog and contact features",
-            technologies: ["HTML5", "CSS3", "JavaScript", "Node.js"],
-            link: "https://github.com/WebAlikm/PrivacyGen",
-            image: "🔒"
+            name: "Al Qua'a Services",
+            description: "Arabic-first community discovery prototype for the 2026 Tatweer Hackathon. Vite and vanilla JavaScript power bilingual search and filters over demonstration listings.",
+            technologies: ["JavaScript", "Vite", "HTML", "CSS", "JSON"],
+            link: "https://github.com/WebAlikm/alqua-services",
+            image: "📍"
+        },
+        {
+            name: "ChatGPT-Themed Portfolio",
+            description: "Interactive portfolio interface with keyword-matched, predefined responses. This version does not call a language model.",
+            technologies: ["JavaScript", "HTML", "CSS"],
+            link: "https://github.com/WebAlikm/ChatGPT-Portfolio",
+            image: "💬"
         }
     ],
-    
     experience: [
         {
-            company: "Abu Dhabi University (ADU)",
-            position: "Bachelor's in Artificial Intelligence Engineering",
-            duration: "Current",
-            description: "Studying AI Engineering with focus on web development"
+            company: "Abu Dhabi University",
+            position: "B.Sc. Computer Science — Artificial Intelligence",
+            duration: "2024–2029 (expected)",
+            description: "Computer Science undergraduate studying AI."
         },
         {
-            company: "APU University",
-            position: "Student",
-            duration: "2025 (1 year)",
-            description: "Completed one year before transferring to ADU"
+            company: "Freelance",
+            position: "Video Editor & Content Creator",
+            duration: "Oct 2023 – Jul 2026",
+            description: "Produced ten client videos; used AI-assisted production workflows to reduce delivery turnaround by five days (owner-reported)."
         }
     ]
 };
@@ -50,7 +54,7 @@ const responses = {
         keywords: ['skill', 'technology', 'tech', 'programming', 'language', 'framework', 'tool'],
         response: () => {
             const { frontend, backend, tools } = portfolioData.skills;
-            return `I have expertise in various technologies:\n\n**Frontend:** ${frontend.join(', ')}\n\n**Backend:** ${backend.join(', ')}\n\n**Tools & Others:** ${tools.join(', ')}\n\nI'm always learning new technologies to stay current with industry trends. What specific technology would you like to know more about?`;
+            return `My publicly documented projects use these technologies:\n\n**Frontend:** ${frontend.join(', ')}\n\n**Backend:** ${backend.join(', ')}\n\n**Tools & Others:** ${tools.join(', ')}\n\nYou can verify the stack in my linked repositories. Ask me about a specific project.`;
         }
     },
     
@@ -68,7 +72,7 @@ const responses = {
             portfolioData.experience.forEach((exp, index) => {
                 expText += `**${exp.position}** at ${exp.company}\n${exp.duration}\n${exp.description}\n\n`;
             });
-            expText += "I'm passionate about creating efficient, scalable solutions and collaborating with great teams.";
+            expText += "For implementation details, please review the project repositories and case studies.";
             return expText;
         }
     },
@@ -83,7 +87,7 @@ const responses = {
     about: {
         keywords: ['about', 'who', 'background', 'story', 'yourself', 'bio', 'tell me about'],
         response: () => {
-            return `Hi there! 👋 I'm **${portfolioData.name}**, a passionate ${portfolioData.title} based in ${portfolioData.location}.\n\nI love creating digital experiences that make a difference. When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee while brainstorming the next big idea.\n\n*What would you like to know more about? My skills, projects, or how to get in touch?*`;
+            return `Hi there! 👋 I'm **${portfolioData.name}**, a ${portfolioData.title} based in ${portfolioData.location}.\n\nI build web applications, including an email-based experience and an Arabic-first community discovery prototype. You can open the code and documentation linked under Projects.\n\n*What would you like to know more about? My skills, projects, or how to get in touch?*`;
         }
     },
     
@@ -250,16 +254,13 @@ function switchChatSession(sessionId) {
 
 function addWelcomeMessage(sessionId) {
     const welcomeMessages = {
-        general: "Hello! I'm Ali Khemakhem, a Full Stack Developer from Abu Dhabi, UAE. Welcome to my interactive portfolio! How can I help you today?",
-        skills: "I'm proficient in both frontend and backend technologies:\n\n**Frontend:** React, Vue.js, JavaScript, TypeScript, HTML5, CSS3, Tailwind CSS\n\n**Backend:** Node.js, Python, Express.js, Django, PostgreSQL, MongoDB\n\n**Other Tools:** Java\n\nWhat specific technology would you like to know more about?",
-        projects: "Here are some of my key projects:\n\n🏀 **PickupBasketball** - A modern React application for creating and managing sports games with player assignments\n🔗 [GitHub](https://github.com/WebAlikm/PickupBasketball01.git)\n\n🔒 **PrivacyGen** - A complete privacy policy generator website with blog, pricing packages, and contact functionality\n🔗 [GitHub](https://github.com/WebAlikm/PrivacyGen)\n\nWhich project would you like to learn more about?",
-        experience: "I'm a passionate Full Stack Developer and AI enthusiast currently pursuing a Bachelor's degree in Artificial Intelligence Engineering at Abu Dhabi University (ADU). I previously studied at APU University for one year in 2025.\n\nWhile I don't have formal work experience yet, I've completed 10+ personal projects using various technologies including React, Vue.js, Node.js, Python, and more. My focus is on combining my AI studies with practical web development skills.\n\nWhat aspect of my educational journey or projects interests you most?",
-        contact: "I'd love to connect with you! Here's how you can reach me:\n\n📧 **Email:** alislim007km@gmail.com\n💼 **LinkedIn:** [Ali Khemakhem](https://www.linkedin.com/in/ali-khemakhem-393baa1b0/)\n🔗 **GitHub:** [WebAlikm](https://github.com/WebAlikm)\n\nFeel free to reach out for collaborations, opportunities, or just to chat about technology!"
+        general: "Hi! I'm Ali's portfolio guide. This is a scripted chat interface, not a generative AI model. Ask about my projects, skills, experience, or contact information.",
+        skills: "Frontend: React, TypeScript, JavaScript, HTML, CSS, Tailwind CSS. Backend and APIs: Node.js, Express, Python, Supabase, Resend. See linked repositories for project-specific evidence.",
+        projects: "Projects: YouAreMoreHere (React/Express email workflow), Al Qua'a Services (Arabic-first Vite directory), and this ChatGPT-themed portfolio (keyword-based UI). Ask to see my projects for links.",
+        experience: "Computer Science (AI) undergraduate at Abu Dhabi University, with freelance video-editing experience from 2023–2026 and software projects documented on GitHub.",
+        contact: "Reach me at " + portfolioData.email + " or view my GitHub at https://github.com/WebAlikm."
     };
-    
-    setTimeout(() => {
-        addMessage(welcomeMessages[sessionId] || welcomeMessages.general, false);
-    }, 500);
+    setTimeout(() => addMessage(welcomeMessages[sessionId] || welcomeMessages.general, false), 500);
 }
 
 // Message Functions
@@ -276,11 +277,18 @@ function createMessage(content, isUser = false, showAvatar = true) {
     messageDiv.innerHTML = `
         ${avatarDiv}
         <div class="message-content">
-            <p>${formatMessage(content)}</p>
+            <p>${isUser ? escapeHtml(content) : formatMessage(content)}</p>
         </div>
     `;
     
     return messageDiv;
+}
+
+// Do not interpret visitor-entered text as markup or executable HTML.
+function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, character => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    })[character]);
 }
 
 function formatMessage(text) {
@@ -491,7 +499,7 @@ document.addEventListener('click', (e) => {
         const projectIndex = parseInt(e.target.getAttribute('data-project'));
         const project = portfolioData.projects[projectIndex];
         
-        const detailMessage = `Here are more details about **${project.name}**:\n\n${project.description}\n\n**Technologies Used:** ${project.technologies.join(', ')}\n\n**Key Features:**\n• Modern, responsive design\n• Clean, maintainable code\n• Performance optimized\n• User-friendly interface\n\n${project.link ? `**Live Demo:** [View Project](${project.link})\n\n` : ''}Would you like to know about the development process or see other projects?`;
+        const detailMessage = `Here are more details about **${project.name}**:\n\n${project.description}\n\n**Technologies Used:** ${project.technologies.join(', ')}\n\n**Implementation:** See the repository or live project for features and technical evidence\n\n${project.link ? `**Project link:** [Open](${project.link})\n\n` : ''}Would you like to know about the development process or see other projects?`;
         
         // Show typing indicator
         showTypingIndicator();
@@ -578,7 +586,7 @@ messageInput.focus();
 
 // About button functionality
 function showAboutInfo() {
-    const aboutMessage = `Portfolio Version 1.0\n\nThis is the first version of my interactive portfolio website.\n\nVersion 2.0 Plans:\nTraining custom AI models to answer questions about my experience and projects.`;
+    const aboutMessage = `Portfolio Version 1.0\n\nThis version uses deterministic keyword matching, not a language model. A future version may add server-side, source-grounded AI retrieval with evaluation and rate limiting.`;
     alert(aboutMessage);
 }
 
@@ -601,7 +609,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add initial welcome message
     setTimeout(() => {
-        addMessage("Hello! I'm your AI assistant. I can help you learn about my background, skills, and projects. What would you like to know?", false);
+        addMessage("Hi! I'm Ali's portfolio guide (scripted responses, not an LLM). Ask about my projects, skills, or experience.", false);
     }, 1000);
 });
 
